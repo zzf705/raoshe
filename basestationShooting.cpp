@@ -36,7 +36,7 @@ void basestationShooting:: basestationOperate(int maxGridx,int maxGridy,float sh
 	{
 		try 
 		{
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";//和数据库连接
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";//和数据库连接
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 			catch(_com_error &e) {
@@ -121,6 +121,8 @@ void basestationShooting:: basestationOperate(int maxGridx,int maxGridy,float sh
 			continue;
 		if(raymanage1.finalCrossFlag==1&&raymanage1.finalCrossPosition==0&&raymanage1.finalCrossBuildingPosition==1)//落在建筑物的顶面
 		{   
+			if(raymanage1.finalCrossBuildingname==100)
+			{
 			diffractionCalculate h1;
 			h1.decideRoofLengDiffraction(raymanage1.finalCrossPointx,raymanage1.finalCrossPointy,BX[raymanage1.finalCrossBuildingname-1],HX[raymanage1.finalCrossBuildingname-1]);
 		if(h1.roofLengdiffractionFlag==1)
@@ -130,6 +132,7 @@ void basestationShooting:: basestationOperate(int maxGridx,int maxGridy,float sh
 			baseStationNumber,kuiLength,shooting.firstDirectiona,shooting.firstDirectionb,shooting.firstDirectionc,BX[raymanage1.finalCrossBuildingname-1],HX[raymanage1.finalCrossBuildingname-1],
 			shooting.rayGain,raymanage1.finalRayLength,diffractioncoefficient1,h1.lengPoint1x,h1.lengPoint1y,h1.lengPoint2x,h1.lengPoint2y,h1.shuipingLengNormalVectorx,h1.shuipingLengNormalVectory,h1.shuipingLengNormalVectorz,BX,HX);
 		}
+			}
 			continue;
 		
 		}
@@ -161,7 +164,7 @@ void basestationShooting:: basestationOperate(int maxGridx,int maxGridy,float sh
 		
 		if(raymanage1.finalCrossFlag==1&&raymanage1.finalCrossPosition==0)//落在建筑物侧面
 		{
-			diffractionCalculate diffractioncalculate1;
+			/*diffractionCalculate diffractioncalculate1;
 			diffractioncalculate1.decideDiffractionOperate(raymanage1.finalCrossPointx,raymanage1.finalCrossPointy,raymanage1.finalCrossPointz,HX[raymanage1.finalCrossBuildingname-1],
 				shooting.firstDirectiona,shooting.firstDirectionb,shooting.firstDirectionc,raymanage1.twoPoint[0].x,raymanage1.twoPoint[0].y,raymanage1.twoPoint[1].x,raymanage1.twoPoint[1].y);
 			if(diffractioncalculate1.diffractionFlag==1)
@@ -179,7 +182,7 @@ void basestationShooting:: basestationOperate(int maxGridx,int maxGridy,float sh
 					baseStationNumber,kuiLength,shooting.firstDirectiona,shooting.firstDirectionb,shooting.firstDirectionc,BX[raymanage1.finalCrossBuildingname-1],HX[raymanage1.finalCrossBuildingname-1],
 					shooting.rayGain,raymanage1.finalRayLength,diffractionCoefficient1,raymanage1.twoPoint[0].x,raymanage1.twoPoint[0].y,raymanage1.twoPoint[1].x,raymanage1.twoPoint[1].y,diffractioncalculate1.shuipingLengNormalVectorx,diffractioncalculate1.shuipingLengNormalVectory,diffractioncalculate1.shuipingLengNormalVectorz,BX,HX);
 				continue;
-			}			
+			}		*/	
 			//求建筑物的反射方向，入射角的余弦值已知
 			raymanage1.findBuildingRefDirection(shooting.firstPointx,shooting.firstPointy,shooting.firstPointz,raymanage1.finalCrossPointx,raymanage1.finalCrossPointy,raymanage1.finalCrossPointz,shooting.firstDirectiona,shooting.firstDirectionb,shooting.firstDirectionc,raymanage1.twoPoint[0],raymanage1.twoPoint[1]);
 			float refCoefficientLength;//反射系数的模值
@@ -228,37 +231,37 @@ void basestationShooting:: basestationOperate(int maxGridx,int maxGridy,float sh
 				
 				{
 
-					diffractionCalculate h2;
-					h2.decideRoofLengDiffraction(raymanage2.finalCrossPointx,raymanage2.finalCrossPointy,BX[raymanage2.finalCrossBuildingname-1],HX[raymanage2.finalCrossBuildingname-1]);
-					if(h2.roofLengdiffractionFlag==1)
-					{
-
-						float diffractioncoefficient2=0.5;
-						//存入此次反射路径
-			shooting.rayLength.push_back(raymanage2.finalRayLength);
-			//判断路径损耗是否超过一定值
-			float totalDistance1=0;//求出射线总的路径
-			int totalNumber1=0;
-			totalNumber1=shooting.rayLength.size();
-			for(int i=1;i<=totalNumber1;i++)
-			
-				{
-					totalDistance1=totalDistance1+shooting.rayLength[i-1];
-			}
-			float totalRefCoefficient1=1;//求出射线反射系数的乘积
-			int totalRefNumber1;
-			totalRefNumber1=shooting.reflecttCoefficient.size();
-			for(int i=1;i<=totalRefNumber1;i++)
-				{
-					 totalRefCoefficient1= totalRefCoefficient1*shooting.reflecttCoefficient[i-1];
-
-			}
-						h2.shupingDiffractionOperate(maxGridx,maxGridy,shootingInterval,baseFrequence,h2.shuipingLengPositionx,h2.shuipingLengPositiony,h2.shuipingLengPositionz,
-						baseStationNumber,kuiLength,shooting.reflecttDirectiona[refNum],shooting.reflecttDirectionb[refNum],shooting.reflecttDirectionc[refNum]
-
-,BX[raymanage2.finalCrossBuildingname-1],HX[raymanage2.finalCrossBuildingname-1],
-						shooting.rayGain,totalDistance1,diffractioncoefficient2* totalRefCoefficient1,h2.lengPoint1x,h2.lengPoint1y,h2.lengPoint2x,h2.lengPoint2y,h2.shuipingLengNormalVectorx,h2.shuipingLengNormalVectory,h2.shuipingLengNormalVectorz,BX,HX);
-					}
+//					diffractionCalculate h2;
+//					h2.decideRoofLengDiffraction(raymanage2.finalCrossPointx,raymanage2.finalCrossPointy,BX[raymanage2.finalCrossBuildingname-1],HX[raymanage2.finalCrossBuildingname-1]);
+//					if(h2.roofLengdiffractionFlag==1)
+//					{
+//
+//						float diffractioncoefficient2=0.5;
+//						//存入此次反射路径
+//			shooting.rayLength.push_back(raymanage2.finalRayLength);
+//			//判断路径损耗是否超过一定值
+//			float totalDistance1=0;//求出射线总的路径
+//			int totalNumber1=0;
+//			totalNumber1=shooting.rayLength.size();
+//			for(int i=1;i<=totalNumber1;i++)
+//			
+//				{
+//					totalDistance1=totalDistance1+shooting.rayLength[i-1];
+//			}
+//			float totalRefCoefficient1=1;//求出射线反射系数的乘积
+//			int totalRefNumber1;
+//			totalRefNumber1=shooting.reflecttCoefficient.size();
+//			for(int i=1;i<=totalRefNumber1;i++)
+//				{
+//					 totalRefCoefficient1= totalRefCoefficient1*shooting.reflecttCoefficient[i-1];
+//
+//			}
+//						h2.shupingDiffractionOperate(maxGridx,maxGridy,shootingInterval,baseFrequence,h2.shuipingLengPositionx,h2.shuipingLengPositiony,h2.shuipingLengPositionz,
+//						baseStationNumber,kuiLength,shooting.reflecttDirectiona[refNum],shooting.reflecttDirectionb[refNum],shooting.reflecttDirectionc[refNum]
+//
+//,BX[raymanage2.finalCrossBuildingname-1],HX[raymanage2.finalCrossBuildingname-1],
+//						shooting.rayGain,totalDistance1,diffractioncoefficient2* totalRefCoefficient1,h2.lengPoint1x,h2.lengPoint1y,h2.lengPoint2x,h2.lengPoint2y,h2.shuipingLengNormalVectorx,h2.shuipingLengNormalVectory,h2.shuipingLengNormalVectorz,BX,HX);
+//					}
 
 
 					break;
@@ -316,7 +319,7 @@ void basestationShooting:: basestationOperate(int maxGridx,int maxGridy,float sh
 			}
 			if(raymanage2.finalCrossFlag==1&&raymanage2.finalCrossPosition==0)//落在建筑物侧面
 			{
-				diffractionCalculate diffractioncalculate2;
+				/*diffractionCalculate diffractioncalculate2;
 			diffractioncalculate2.decideDiffractionOperate(raymanage2.finalCrossPointx,raymanage2.finalCrossPointy,raymanage2.finalCrossPointz,HX[raymanage2.finalCrossBuildingname-1],
 				shooting.reflecttDirectiona[refNum],shooting.reflecttDirectionb[refNum],shooting.reflecttDirectionc[refNum],raymanage2.twoPoint[0].x,raymanage2.twoPoint[0].y,raymanage2.twoPoint[1].x,raymanage2.twoPoint[1].y);
 			if(diffractioncalculate2.diffractionFlag==1)
@@ -338,7 +341,7 @@ void basestationShooting:: basestationOperate(int maxGridx,int maxGridy,float sh
 ,BX[raymanage2.finalCrossBuildingname-1],HX[raymanage2.finalCrossBuildingname-1],
 					shooting.rayGain,totalDistance,diffractionCoefficient2*totalRefCoefficient,raymanage2.twoPoint[0].x,raymanage2.twoPoint[0].y,raymanage2.twoPoint[1].x,raymanage2.twoPoint[1].y,diffractioncalculate2.shuipingLengNormalVectorx,diffractioncalculate2.shuipingLengNormalVectory,diffractioncalculate2.shuipingLengNormalVectorz,BX,HX);
 				break;
-			}			
+			}			*/
 					//求建筑物的反射方向，入射角的余弦值已知
 				raymanage2.findBuildingRefDirection(shooting.crossPointx[refNum],shooting.crossPointy[refNum],shooting.crossPointz[refNum],raymanage2.finalCrossPointx,raymanage2.finalCrossPointy,raymanage2.finalCrossPointz,shooting.reflecttDirectiona[refNum],shooting.reflecttDirectionb[refNum],shooting.reflecttDirectionc[refNum],raymanage2.twoPoint[0],raymanage2.twoPoint[1]);
 				float refCoefficientLength;//反射系数的模值

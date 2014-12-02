@@ -37,7 +37,7 @@ void main()
 	{
 		try 
 		{
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";//和数据库连接
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";//和数据库连接
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 			catch(_com_error &e) {
@@ -221,7 +221,7 @@ void main()
 	//}
 	//else {
 	//	try {
-	//		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+	//		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 	//		//_bstr_t strConnect="Provider=SQLOLEDB;Server=127.0.0.1,1433;Database=PBMS;uid=sa;pwd=pp471006459;";
 	//		//_bstr_t strConnect="Provider=SQLOLEDB.1;Password=pp471006459;Persist Security Info=True;User ID=sa;"
 	//			//"Initial Catalog=PBMS;Data Source=127.0.0.1,1433";

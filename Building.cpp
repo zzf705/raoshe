@@ -39,7 +39,7 @@ void Building::GetThisBuildingRecord(int BId)
 		cout<<"cuole"<<endl;
 	}
 	try {
-		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 
 		sqlSp->Open(strConnect,"","",adModeUnknown);
 	}

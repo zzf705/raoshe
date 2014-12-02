@@ -125,7 +125,7 @@ void ShootingRay::shootingGainAllDirection(float directionAngle,float downInclin
 	else 
 	{
 		try {
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 		catch(_com_error &e) {
@@ -221,7 +221,7 @@ void ShootingRay::GetRecord(int id)
 	{
 		try 
 		{
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 			catch(_com_error &e) {
@@ -337,7 +337,7 @@ void ShootingRay::shuzhiDiffractionShootingRay(float pointx,float pointy,float p
 	else 
 	{
 		try {
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 		catch(_com_error &e) {
@@ -417,7 +417,7 @@ void  ShootingRay::GetDiffractionRecord(int id)//´ÓÈÆÉäÉäÏß·¢Éä±íÖÐµÃµ½ÉäÏßµÄ·½Ï
 	{
 		try 
 		{
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 			catch(_com_error &e) {
@@ -471,7 +471,7 @@ void ShootingRay::shuiPingDiffractionShootingRay(float pointx,float pointy,float
 	else 
 	{
 		try {
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 		catch(_com_error &e) {

@@ -614,7 +614,8 @@ void diffractionCalculate:: shupingDiffractionOperate(int maxGridx,int maxGridy,
 void diffractionCalculate::decideRoofLengDiffraction(float pointx,float pointy,vector<BuildingPoint> oneBPoint,float buildingHeight)//用来判断射线落到顶面是否会发生绕射
 {
 	roofLengdiffractionFlag=0;
-	for(int i=0;i<oneBPoint.size()-1;i++)
+	//for(int i=0;i<oneBPoint.size()-1;i++)
+		for(int i=3;i<4;i++)//只考虑建筑物100的1个棱
 	{
 		float point1x,point1y,point2x,point2y,directionx,directiony,directionz;
 		point1x=oneBPoint[i].px;

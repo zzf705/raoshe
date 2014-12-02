@@ -101,7 +101,7 @@ void gridPower::gridAllPowerCalculate(rayPath raypath1,float rayInterval,float f
 	{
 		try 
 		{
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 			catch(_com_error &e) {
@@ -246,7 +246,7 @@ void gridPower::gridRayLook(rayPath raypath1,float rayInterval,float frequence,i
 	{
 		try 
 		{
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 			catch(_com_error &e) {
@@ -409,7 +409,7 @@ void gridPower::gridRayLook(rayPath raypath1,float rayInterval,float frequence,i
 	{
 		try 
 		{
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 			catch(_com_error &e) {

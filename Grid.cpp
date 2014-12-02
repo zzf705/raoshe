@@ -36,7 +36,7 @@ void Grid::GetThisGirdRecord(int GId)
 		cout<<"cuole"<<endl;
 	}
 	try {
-		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 
 		sqlSp->Open(strConnect,"","",adModeUnknown);
 	}
@@ -105,7 +105,7 @@ void Grid::GetThisGirdRecord(double GX, double GY)
 		cout<<"cuole"<<endl;
 	}
 	try {
-		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 
 		sqlSp->Open(strConnect,"","",adModeUnknown);
 	}
@@ -199,7 +199,7 @@ void Grid::PutThisGridStrength(int GId, double GStrength)
 		cout<<"cuole"<<endl;
 	}
 	try {
-		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+		_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 
 		sqlSp->Open(strConnect,"","",adModeUnknown);
 	}
@@ -262,7 +262,7 @@ void Grid::addThisGridStrengthToNew(int GId, double GStrength,int AId)//将场强结
 	{
 		try 
 		{
-			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test29;";
+			_bstr_t strConnect="Driver={sql server};server=ZHANGZHE-PC;uid=sa;pwd=123456;database=test30;";
 			sqlSp->Open(strConnect,"","",adModeUnknown);
 		}
 			catch(_com_error &e) {
